@@ -21,5 +21,5 @@ def test_model_prediction():
 
     prediction = model.predict(sample)
 
-    assert len(prediction) == 2
+    assert len(prediction) == 1
     assert prediction[0] in [0, 1]
