@@ -5,7 +5,11 @@ import time
 from prometheus_client import start_http_server, Counter, Histogram
 
 # Load trained model
-model = joblib.load("model.pkl")
+@st.cache_resource
+def load_model():
+    return joblib.load("model.pkl")
+
+model = load_model()
 
 # Prometheus metrics
 @st.cache_resource
